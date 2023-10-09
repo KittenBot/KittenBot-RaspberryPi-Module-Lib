@@ -1,13 +1,13 @@
 ##setup
-1.克隆代码
+1.clone code
 ```
-git clone 
+git clone https://github.com/KittenBot/KittenBot-RaspberryPi-Module-Lib.git
 ```
-2.进入克隆好的文件夹
+2.cd project folder
 ```
 cd kittenSugar
 ```
-3.将驱动库安装到全局
+3.install driver library
 ```
 pip install .
 ```
