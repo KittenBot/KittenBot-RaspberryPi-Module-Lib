@@ -109,9 +109,9 @@ instructions_output = {
 	"ok": b'\xAA\x55\x21\x55\xAA'
 }
 class SugarASR:
-	def __init__(self):
+	def __init__(self,port='/dev/ttyS0'):
 
-		self.sugarASR = serial.Serial('/dev/ttyS0',115200)
+		self.sugarASR = serial.Serial(port,115200)
 		self.cmd = ""
 
 		if not self.sugarASR.isOpen():
