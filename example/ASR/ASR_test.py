@@ -1,7 +1,7 @@
 from kittenbot.ASR import *
 import time
 
-asr = SugarASR('/dev/ttyAMA0')
+asr = SugarASR('/dev/ttyS0')
 
 while True:
     if asr.detected():

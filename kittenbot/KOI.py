@@ -52,7 +52,6 @@ class KOI(threading.Thread):
             if self.koi.in_waiting:
                 try:
                     data = self.koi.read(self.koi.in_waiting).decode().strip().split()
-                    print('Received:', data)
                     if data[0] == "K3":
                         self.btn_state["btnA"] = int(data[1])
                         self.btn_state["btnB"] = int(data[2])
