@@ -3,3 +3,4 @@ from . import ASR
 from . import ENV
 from . import KOI
 from . import NeoPixel
+from . import Servo

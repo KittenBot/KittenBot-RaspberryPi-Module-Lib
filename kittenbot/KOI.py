@@ -28,7 +28,7 @@ class KOI(threading.Thread):
         self.rectangle_attributes = {"x":0,"y":0,"w":0,"h":0}
         self.circle_attributes = {"x":0,"y":0,"r":0}
         self.baiduAi_face_feature = ""
-
+        self.dir = 0
         count = 0
         data = ""
         while True:
@@ -60,8 +60,12 @@ class KOI(threading.Thread):
                             self.face_attributes["x"] = -1
                             self.face_attributes["y"] = -1
                         else:
-                            self.face_attributes["x"] = float(data[1])
-                            self.face_attributes["y"] = float(data[2])
+                            if dir:
+                                self.face_attributes["x"] = 240 - float(data[1])
+                                self.face_attributes["y"] = 240 - float(data[2])
+                            else:
+                                self.face_attributes["x"] = float(data[1])
+                                self.face_attributes["y"] = float(data[2])
                     elif data[0] == "K32":
                         if len(data) == 1:
                             self.face_attributes["number"] = 0
@@ -107,6 +111,7 @@ class KOI(threading.Thread):
     
     def screen_mode(self,dir):
         self.koi.write("K6 {}\r\n".format(dir).encode())
+        self.dir = dir
         time.sleep(0.1)
 
     def display_text(self,x,y,delay,text):
@@ -189,7 +194,7 @@ class KOI(threading.Thread):
     
     def speech_run(self):
         self.koi.write("K65\r\n".encode())
-        time.sleep(0.1)
+        time.sleep(5)
         return self.speech_result
     
     def speech_save_model(self,model):

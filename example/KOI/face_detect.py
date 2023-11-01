@@ -2,7 +2,7 @@
 #现象描述：运行程序之后，屏幕将会启用前置摄像头。在检测到人脸时输出koi矩形左上角坐标，没有检测到时候输出-1
 from kittenbot.KOI import *#引入相关库
 koi = KOI()#初始化KOI
-koi.screen_mode(2)#前置2，后置0
+koi.screen_mode(2)
 koi.face_yolo_init()#初始化，人脸模型
 
 #程序主循环
